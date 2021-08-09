@@ -1,7 +1,7 @@
 import { ADD_SUBSCRIBER, REMOVE_SUBSCRIBER } from "./types";
 
 const initialState = {
-  count: 370,
+  count: 101,
 };
 
 const subscriberReducer = (state = initialState, action) => {

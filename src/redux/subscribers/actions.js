@@ -5,6 +5,7 @@ export const addSubscriber = () => {
     type: ADD_SUBSCRIBER,
   };
 };
+
 export const removeSubscriber = () => {
   return {
     type: REMOVE_SUBSCRIBER,
