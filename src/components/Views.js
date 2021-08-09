@@ -29,7 +29,7 @@ const mapStateToProps = ({ views }) => {
 //   };
 // };
 const mapDispatchToProps = {
-  addView,
+  addView: (number) => addView(number),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Views);
