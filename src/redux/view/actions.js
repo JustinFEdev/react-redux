@@ -1,8 +1,8 @@
-import { ADD_VIEW } from "./types";
+// import { ADD_VIEW } from "./types";
 
-export const addView = (number) => {
-  return {
-    type: ADD_VIEW,
-    payload: Number(number),
-  };
-};
+// export const addView = (number) => {
+//   return {
+//     type: ADD_VIEW,
+//     payload: Number(number),
+//   };
+// };

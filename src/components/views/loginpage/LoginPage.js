@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { loginUser } from "../../../_actions/user_action";
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
+  const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+
   const onEmailHandle = (e) => {
     setEmail(e.currentTarget.value);
-    console.log(email);
+    console.log(Email);
   };
 
   const onPasswordHandle = (e) => {
@@ -19,14 +21,25 @@ const LoginPage = () => {
   const onSubmitHandle = (e) => {
     e.preventDefault();
     let body = {
-      email: email,
+      email: Email,
       password: password,
     };
-
-    // dispatch(loginUser(body));
+    // console.log("body");
+    // console.log(body);
+    axios
+      .post("/api/users/login", body)
+      .then((response) => {
+        console.log("response check");
+        console.log(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // 디스패치
+    dispatch(loginUser(body));
 
     console.log("submit email");
-    console.log(email);
+    console.log(Email);
 
     console.log("submit password");
     console.log(password);
@@ -47,7 +60,7 @@ const LoginPage = () => {
       >
         <form onSubmit={onSubmitHandle} style={{ display: "flex", flexDirection: "column", textAlign: "left" }}>
           <label>Email</label>
-          <input type="email" value={email} onChange={onEmailHandle} placeholder="write your id" />
+          <input type="email" value={Email} onChange={onEmailHandle} placeholder="write your id" />
           <label>Password</label>
           <input type="password" value={password} onChange={onPasswordHandle} placeholder="write your pw" />
           <br />
